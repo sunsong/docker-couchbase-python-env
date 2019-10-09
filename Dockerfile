@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 
 ADD sources.list /etc/apt/sources.list
+ADD pip.conf /root/.pip/pip.conf
 RUN apt-get update
 RUN apt-get install -y \
     build-essential \
@@ -24,6 +25,7 @@ RUN apt-get install -y \
     libcouchbase2-bin
 
 RUN pip3 install couchbase
+RUN pip3 install ipython
 
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 
