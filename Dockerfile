@@ -24,11 +24,12 @@ RUN apt-get install -y \
     libcouchbase-dev \
     libcouchbase2-bin
 
-RUN pip3 install couchbase
+RUN pip3 install couchbase==3.0.4
 RUN pip3 install ipython
 
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 
 ADD . /app/
+WORKDIR /app
 
 CMD ["zsh"]
